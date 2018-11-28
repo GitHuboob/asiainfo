@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://xmlns.example.com/1108622653470/recv_msgImpl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Untitled" targetNamespace="http://xmlns.example.com/1108622653470/recv_msgImpl">
+    <wsdl:types/>
+    <wsdl:message name="MsgIn">
+        <wsdl:part name="DevNo" type="xs:string"/><!-- 手机号 -->
+        <wsdl:part name="Source" type="xs:string"/><!-- 10086 -->
+        <wsdl:part name="Msg" type="xs:string"/><!-- 消息内容 -->
+        <wsdl:part name="remarks" type="xs:string"/><!-- 空 -->
+    </wsdl:message>
+    <wsdl:message name="MsgOut">
+        <wsdl:part name="ErrCode" type="xs:string"/><!-- 返回 0为成功 -->
+    </wsdl:message>
+    <wsdl:portType name="PortType">
+        <wsdl:operation name="recv_msg">
+            <wsdl:input message="tns:MsgIn"/>
+            <wsdl:output message="tns:MsgOut"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SOAPEventSourceBinding" type="tns:PortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="recv_msg">
+            <soap:operation style="rpc" soapAction="/recv_msg/recv_msg"/>
+            <wsdl:input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="InputMessageNamespace" parts="DevNo Source Msg remarks"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="OutputMessageNamespace" parts="ErrCode"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="recv__msg">
+        <wsdl:port name="SOAPEventSource" binding="tns:SOAPEventSourceBinding">
+        	<!-- 测试环境为:http://10.4.144.222:8815/recv_msg/recv_msg -->
+        	<!-- 生产环境为:http://10.4.44.239:8815/recv_msg/recv_msg -->
+            <soap:address location="http://10.4.44.239:8815/recv_msg/recv_msg"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

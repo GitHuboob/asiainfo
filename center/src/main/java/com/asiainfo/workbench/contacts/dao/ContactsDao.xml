@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.asiainfo.workbench.contacts.dao.ContactsDao">
+
+    <resultMap id="BaseResultMap" type="com.asiainfo.workbench.contacts.domain.Group">
+        <result column="GROUP_ID" jdbcType="VARCHAR" property="groupId" />
+        <result column="GROUP_CODE" jdbcType="VARCHAR" property="groupCode" />
+        <result column="GROUP_NAME" jdbcType="VARCHAR" property="groupName" />
+        <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    </resultMap>
+
+    <resultMap id="BaseResultMap2" type="com.asiainfo.workbench.contacts.domain.Staff">
+        <id column="STAFF_ID" jdbcType="INTEGER" property="staffId" />
+        <result column="STAFF_NAME" jdbcType="VARCHAR" property="staffName" />
+        <result column="STAFF_PHONE" jdbcType="VARCHAR" property="staffPhone" />
+        <result column="STAFF_EMAIL" jdbcType="VARCHAR" property="staffEmail" />
+        <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    </resultMap>
+
+	<sql id="Base_Column_List">
+		STAFF_ID, STAFF_NAME, STAFF_EMAIL, STAFF_PHONE, REMARK
+	</sql>
+
+	<sql id="queryContactsForPageByConditionWhere">
+		<where>
+			<if test="owner!=null and owner!=''">
+				and u1.name like '%' #{owner} '%'
+			</if>
+			<if test="fullName!=null and fullName!=''">
+				and co.fullName like '%' #{fullName} '%'
+			</if>
+			<if test="customerName!=null and customerName!=''">
+				and cu.name like '%' #{customerName} '%'
+			</if>
+			<if test="source!=null and source!=''">
+				and dv1.text like '%' #{source} '%'
+			</if>
+			<if test="birth!=null and birth!=''">
+				and co.birth like '%' #{birth} '%'
+			</if>
+		</where>
+	</sql>
+
+	<select id="selectStaffListByIds" resultType="com.asiainfo.workbench.contacts.domain.Staff">
+		select st.STAFF_NAME staffName, max(st.STAFF_EMAIL) staffEmail, max(st.STAFF_PHONE) staffPhone
+		from CHANNEL_SYS_JOB_STAFF_INFO st
+		INNER JOIN CHANNEL_SYS_JOB_RELATION_INFO re ON (re.STAFF_ID = st.STAFF_ID)
+		INNER JOIN CHANNEL_SYS_JOB_GROUP_INFO gr ON (gr.GROUP_ID = re.GROUP_ID)
+		where gr.GROUP_CODE in
+		<foreach index="index" collection="set" open="(" close=")" item="id" separator=",">
+			#{id}
+		</foreach>
+			AND st.STATE = '1' AND re.STATE = '1' and gr.STATE = '1'
+        group by st.STAFF_NAME
+	</select>
+	
+	<!-- 保存创建的联系人 -->
+	<insert id="SaveCreateContacts" parameterType="com.asiainfo.workbench.contacts.domain.Staff">
+		insert into CHANNEL_SYS_JOB_STAFF_INFO (STAFF_ID,STAFF_NAME,STAFF_PHONE,STATE,REMARK,STAFF_EMAIL,CREATE_TIME)
+		values
+		(#{staffId},#{staffName},#{staffPhone},#{state},#{remark},#{staffEmail},#{createTime})
+	</insert>
+	<!-- 保存创建的中间表数据 -->
+	<insert id="SaveCreateStaffGroupRelation" parameterType="com.asiainfo.workbench.contacts.domain.StaffGroupRelation">
+		insert into CHANNEL_SYS_JOB_RELATION_INFO (STAFF_ID, GROUP_ID, STATE)
+		values
+		(#{staffId},#{groupId},#{state})
+	</insert>
+
+    <!-- 保存修改的联系人 -->
+    <update id="SaveEditContacts" parameterType="com.asiainfo.workbench.contacts.domain.Staff">
+        update CHANNEL_SYS_JOB_STAFF_INFO
+        set STAFF_NAME=#{staffName,jdbcType=VARCHAR},STAFF_PHONE=#{staffPhone,jdbcType=VARCHAR},STAFF_EMAIL=#{staffEmail,jdbcType=VARCHAR},REMARK=#{remark,jdbcType=VARCHAR}
+        where STAFF_ID=#{staffId,jdbcType=INTEGER}
+    </update>
+	
+	<!-- 根据人名和手机号精确查询客户 -->
+	<select id="queryContactsByFullNameMphone" resultType="com.asiainfo.workbench.contacts.domain.Staff">
+		select *
+		from tbl_contacts
+		where fullName = #{fullName} and mphone = #{mphone}
+	</select>
+	
+	<!-- 根据条件分页查询联系人(查名字) -->
+    <!-- 总结：resultType需要将字段和属性对应起来；BaseResultMap可以直接使用，但需要指定对应的类 -->
+	<select id="queryContactsForPageByCondition" resultType="com.asiainfo.workbench.contacts.domain.Staff">
+        select * from (
+            select a.*, ROWNUM rnum from (
+                select st.STAFF_ID staffId, st.STAFF_NAME staffName, st.STAFF_PHONE staffPhone,
+					NVL(st.STAFF_EMAIL,' ') staffEmail, st.CREATE_TIME createTime, NVL(st.REMARK,' ') remark
+                from CHANNEL_SYS_JOB_STAFF_INFO st
+                <where>
+                    <if test="fullName!=null and fullName!=''">
+                        and st.STAFF_NAME = #{fullName}
+                    </if>
+                </where>
+                order by to_date(st.CREATE_TIME, 'yyyy-mm-dd hh24:mi:ss') desc
+            ) a
+        ) b
+		where b.rnum > #{beginNo} and #{beginNo} + #{pageSize} >= b.rnum
+	</select>
+
+	<select id="queryStaffByAutoComplate" resultType="com.asiainfo.workbench.contacts.domain.Staff">
+		select MAX(st.STAFF_ID) staffId, st.STAFF_NAME staffName
+		from CHANNEL_SYS_JOB_STAFF_INFO st
+		<where>
+			<if test="fullName!=null and fullName!=''">
+				and st.STAFF_NAME like '%' || #{fullName} || '%'
+			</if>
+		</where>
+        GROUP BY st.STAFF_NAME
+	</select>
+
+	<!-- 根据条件查询联系人总条数 -->
+	<select id="queryContactsForCountByCondition" resultType="long">
+		select count(*) as count
+		from CHANNEL_SYS_JOB_STAFF_INFO st
+        <where>
+            <if test="fullName!=null and fullName!=''">
+                and st.STAFF_NAME = #{fullName}
+            </if>
+        </where>
+	</select>
+
+    <select id="queryContactsForId" resultType="int">
+        select MAX(STAFF_ID)+1 as id
+        from CHANNEL_SYS_JOB_STAFF_INFO
+    </select>
+
+	<select id="queryContactsById" resultType="com.asiainfo.workbench.contacts.domain.Staff">
+		select st.STAFF_ID staffId, st.STAFF_NAME staffName, st.STAFF_PHONE staffPhone,
+                    st.STAFF_EMAIL staffEmail, st.CREATE_TIME createTime, st.REMARK remark
+        from CHANNEL_SYS_JOB_STAFF_INFO st
+        where st.STAFF_ID = #{id}
+	</select>
+
+    <select id="queryGroupList" resultMap="BaseResultMap">
+        select GROUP_ID, GROUP_CODE, GROUP_NAME, NVL(REMARK,' ') REMARK
+        from CHANNEL_SYS_JOB_GROUP_INFO
+        where STATE = '1'
+    </select>
+
+	<select id="queryGroupListById" resultMap="BaseResultMap">
+		select gr.GROUP_ID, gr.GROUP_CODE, gr.GROUP_NAME, gr.REMARK
+        from CHANNEL_SYS_JOB_GROUP_INFO gr
+        INNER JOIN CHANNEL_SYS_JOB_RELATION_INFO re ON (re.GROUP_ID = gr.GROUP_ID)
+        INNER JOIN  CHANNEL_SYS_JOB_STAFF_INFO st ON (st.STAFF_ID = re.STAFF_ID)
+        where gr.state = '1' and re.state = '1' and st.state = '1'
+        and st.STAFF_ID = #{id}
+	</select>
+	
+	<!-- 根据ids批量删除联系人 -->
+	<delete id="deleteContactsByIds">
+		delete from CHANNEL_SYS_JOB_STAFF_INFO where STAFF_ID in
+		<foreach collection="array" open="(" close=")" item="id" separator=",">
+			#{id}
+		</foreach>
+	</delete>
+
+	<select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap2">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM CHANNEL_SYS_JOB_STAFF_INFO
+		WHERE STAFF_ID = #{id,jdbcType=INTEGER}
+	</select>
+
+    <!-- 根据staffId、groupId删除联系人 -->
+    <delete id="deleteRelationByIds">
+        delete from CHANNEL_SYS_JOB_RELATION_INFO
+        WHERE STAFF_ID = #{staffId} AND GROUP_ID = #{groupId}
+    </delete>
+
+    <!-- 加入@Param("map")后可将java.util.Map简写未map, 通过map.staffId取值 -->
+    <!--<update id="deleteRelationByIds" parameterType="map">
+        update CHANNEL_SYS_JOB_RELATION_INFO set state = '0'
+        WHERE STAFF_ID = #{map.staffId} AND GROUP_ID = #{map.groupId}
+    </update>-->
+
+    <!--<update id="deleteRelationByIds" parameterType="java.util.Map">
+        update CHANNEL_SYS_JOB_RELATION_INFO set state = '0'
+        WHERE STAFF_ID = #{staffId} AND GROUP_ID = #{groupId}
+    </update>-->
+
+    <insert id="insertRelationByIds" parameterType="java.util.Map">
+        insert into CHANNEL_SYS_JOB_RELATION_INFO
+        (STAFF_ID, GROUP_ID, STATE, REMARK)
+        <foreach collection="groupIds" index="index" item="groupId" separator="union all">
+            (
+            SELECT
+            #{staffId}, #{groupId}, '1', to_char(sysdate, 'yyyy-mm-dd hh24:mi:ss')
+            FROM DUAL
+            )
+        </foreach>
+    </insert>
+
+	<insert id="saveCreateStaffByList" parameterType="java.util.List">
+		iNSERT INTO CHANNEL_SYS_JOB_STAFF_INFO (STAFF_ID, STAFF_NAME, STAFF_EMAIL, STAFF_PHONE, STATE, CREATE_TIME, REMARK)
+
+		select CHANNEL_SYS_JOB_STAFF_INFO$SEQ.NEXTVAL,hi.*
+		from(
+		<foreach collection="list" item="obj" index="index" separator="union all">
+			SELECT #{obj.staffName},#{obj.staffEmail},#{obj.staffPhone},#{obj.state},to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'),#{obj.remark} FROM DUAL
+		</foreach>
+		) hi
+	</insert>
+
+</mapper>

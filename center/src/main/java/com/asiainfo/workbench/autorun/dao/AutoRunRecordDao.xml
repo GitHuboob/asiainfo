@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.asiainfo.workbench.autorun.dao.AutoRunRecordDao">
+
+    <resultMap id="BaseResultMap" type="com.asiainfo.workbench.autorun.domain.AutoRunRecord">
+        <result column="ID" jdbcType="INTEGER" property="id" />
+        <result column="JOB_NAME" jdbcType="VARCHAR" property="jobName" />
+        <result column="FILE_NAME" jdbcType="VARCHAR" property="fileName" />
+        <result column="LAST_TIME" jdbcType="VARCHAR" property="lastTime" />
+        <result column="NEXT_STARTTIME" jdbcType="VARCHAR" property="nextStartTime" />
+    </resultMap>
+
+    <select id="queryAutoRunRecordByCondition" resultType="com.asiainfo.workbench.autorun.domain.AutoRunRecord">
+        select ID id, JOB_NAME jobName, FILE_NAME fileName, LAST_TIME lastTime, NEXT_STARTTIME nextStartTime
+        from CHANNEL_SYS_JOB_AUTORUN_RECORD
+        <where>
+            <if test="jobName!=null and jobName!=''">
+                and JOB_NAME = #{jobName}
+            </if>
+            <!--<if test="fileName!=null and fileName!=''">
+                and FILE_NAME = #{fileName}
+            </if>-->
+        </where>
+    </select>
+
+    <select id="queryInterfaceRunCountByAutoRunRecord" resultType="int">
+        SELECT COUNT(*) as count
+        FROM RWD_TRANS1O.CHANNEL_SYS_JOB_LOG A
+        LEFT JOIN RWD_TRANS1O.CHANNEL_SYS_JOB_CONFIG B ON (B.JOB_NAME = A.JOB_NAME)
+        <where>
+            AND A.STATUS = 'S'
+            AND TO_CHAR(A.START_TIME, 'YYYYMMDD') =  TO_CHAR(B.LAST_TIME, 'YYYYMMDD')
+            AND TO_CHAR(A.END_TIME, 'YYYYMMDD') =  TO_CHAR(B.LAST_TIME, 'YYYYMMDD')
+            <if test="jobName != null and jobName != ''">
+                AND A.JOB_NAME = #{jobName,jdbcType=VARCHAR}
+            </if>
+            <if test="lastTime != null and lastTime != ''">
+                /*LAST_TIME格式很重要！*/
+                AND TO_CHAR(B.LAST_TIME, 'YYYYMMDD') =
+                TO_CHAR(TO_DATE(#{lastTime,jdbcType=VARCHAR}, 'YYYY-MM-DD HH24:MI:SS'),'YYYYMMDD')
+            </if>
+        </where>
+    </select>
+
+    <update id="updateChannelSysJobConfigByAutoRunRecord">
+        /*UPDATE RWD_TRANS1O.CHANNEL_SYS_JOB_CONFIG
+                SET NEXT_STARTTIME = TO_DATE(#{nextStartTime,jdbcType=VARCHAR},
+                                             'YYYY-MM-DD HH24:MI:SS'),
+                    LAST_TIME      = TO_DATE(#{lastTime,jdbcType=VARCHAR},
+                                             'YYYY-MM-DD HH24:MI:SS')
+              WHERE JOB_NAME = #{jobName,jdbcType=VARCHAR}
+    </update>
+
+</mapper>

@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.asiainfo.workbench.activity.dao.ActivityDao">
+
+    <resultMap id="BaseResultMap" type="com.asiainfo.workbench.activity.domain.Channel">
+        <result column="ID" jdbcType="INTEGER" property="id" />
+        <result column="JOB_NAME" jdbcType="VARCHAR" property="jobName" />
+        <result column="SEND_TIME" jdbcType="VARCHAR" property="sendTime" />
+        <result column="FILE_NAME" jdbcType="VARCHAR" property="fileName" />
+        <result column="FILE_PATH" jdbcType="VARCHAR" property="filePath" />
+        <result column="STATE" jdbcType="VARCHAR" property="state" />
+        <result column="WORK_TYPE" jdbcType="VARCHAR" property="workType" />
+        <result column="NEXT_START_TIME" jdbcType="VARCHAR" property="nextStartTime" />
+        <result column="GROUP_CODE" jdbcType="VARCHAR" property="groupCode" />
+        <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+        <result column="MAX_SEND_COUNT" jdbcType="VARCHAR" property="maxSendCount" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        A.JOB_NAME, A.WORK_TYPE, A.FILE_PATH, A.FILE_NAME/*, A.FILE_NAME_SUFFIX*/
+    </sql>
+
+    <select id="getChannelList"  parameterType="java.lang.String" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM CHANNEL_SYS_JOB_PATH A
+        INNER JOIN CHANNEL_SYS_JOB_CONFIG B ON (B.JOB_NAME = A.JOB_NAME)
+    </select>
+
+    <select id="getChannelByDate"  parameterType="java.lang.String" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM CHANNEL_SYS_JOB_PATH A
+        INNER JOIN CHANNEL_SYS_JOB_CONFIG B ON (B.JOB_NAME = A.JOB_NAME)
+        WHERE TO_CHAR(B.NEXT_STARTTIME,'YYYYMMDD') = #{date,jdbcType=VARCHAR}
+        ORDER BY B.NEXT_STARTTIME DESC
+    </select>
+
+    <select id="getChannelByParams" resultMap="BaseResultMap">
+        SELECT 2 STATE, #{date,jdbcType=VARCHAR} SEND_TIME, /*B.NEXT_STARTTIME NEXT_START_TIME,*/ A.GROUP_CODE GROUP_CODE,
+        DECODE(B.GET_PUT,'GET',to_char(B.NEXT_STARTTIME,'yyyy-mm-dd hh24:mi:ss'),to_char(B.NEXT_STARTTIME+1/24/60*30,'yyyy-mm-dd hh24:mi:ss')) NEXT_START_TIME,
+        /*DECODE(B.FORMAT_DATE,'',B.FILE_NAME_PREFIX||B.FILE_NAME_SUFFIX, B.FILE_NAME_PREFIX||TO_CHAR(TO_DATE(A.NEXT_START_TIME,'yyyy-mm-dd hh24:mi:ss'),B.FORMAT_DATE)||B.FILE_NAME_SUFFIX)*/
+        /*DECODE(A.FORMAT_DATE,'',A.FILE_NAME_PREFIX||A.FILE_NAME_SUFFIX, A.FILE_NAME_PREFIX||TO_CHAR(B.NEXT_STARTTIME,A.FORMAT_DATE)||A.FILE_NAME_SUFFIX) FILE_NAME,*/
+        A.MAX_SEND_COUNT MAX_SEND_COUNT,
+        <include refid="Base_Column_List" />
+        FROM CHANNEL_SYS_JOB_PATH A
+        INNER JOIN CHANNEL_SYS_JOB_CONFIG B ON (B.JOB_NAME = A.JOB_NAME)
+        WHERE TO_CHAR(B.NEXT_STARTTIME,'YYYYMMDD') = #{date,jdbcType=VARCHAR}
+        <if test="ip != null and ip != ''">
+            AND A.SERVER_IP = #{ip,jdbcType=VARCHAR}
+        </if>
+        ORDER BY B.NEXT_STARTTIME DESC
+    </select>
+
+    <select id="getChannelCountByParams" resultType="int">
+        SELECT COUNT(*) as count
+        FROM CHANNEL_SYS_JOB_HISTORY
+        <where>
+            <if test="sendTime != null and sendTime != ''">
+                AND SEND_TIME = #{sendTime,jdbcType=VARCHAR}
+            </if>
+            <if test="jobName != null and jobName != ''">
+                AND JOB_NAME = #{jobName,jdbcType=VARCHAR}
+            </if>
+        </where>
+        ORDER BY SEND_TIME DESC
+    </select>
+
+    <select id="getHistoryChannelByParams" resultMap="BaseResultMap">
+        SELECT A.ID, A.STATE, A.SEND_TIME, B.JOB_NAME, B.WORK_TYPE, B.FILE_PATH, B.FILE_NAME, B.GROUP_CODE, /*A.NEXT_START_TIME, */A.LOG_INFO REMARK,
+        DECODE(B.GET_PUT,'GET',A.NEXT_START_TIME,to_char(to_date(A.NEXT_START_TIME, 'yyyy-mm-dd hh24:mi:ss')+1/24/60*30,'yyyy-mm-dd hh24:mi:ss')) NEXT_START_TIME,
+        /*DECODE(B.FORMAT_DATE,'',B.FILE_NAME_PREFIX||B.FILE_NAME_SUFFIX, B.FILE_NAME_PREFIX||TO_CHAR(A.NEXT_START_TIME,B.FORMAT_DATE)||B.FILE_NAME_SUFFIX) FILE_NAME*/
+        B.MAX_SEND_COUNT
+        FROM CHANNEL_SYS_JOB_HISTORY A
+        INNER JOIN CHANNEL_SYS_JOB_PATH B ON (B.JOB_NAME = A.JOB_NAME)
+        WHERE (A.STATE  = '3' OR (A.STATE  = '2' AND A.SEND_TIME = #{date,jdbcType=VARCHAR}))
+        <if test="ip != null and ip != ''">
+            AND B.SERVER_IP = #{ip,jdbcType=VARCHAR}
+        </if>
+        ORDER BY A.SEND_TIME DESC
+    </select>
+
+    <!--<insert id="insertChannelByList" parameterType="java.util.List" useGeneratedKeys="false">
+          <if test="list != null and list.size > 0">
+            INSERT INTO CHANNEL_SYS_JOB_HISTORY (JOB_NAME, STATE, SEND_TIME)
+            <foreach collection="list" item="obj" index="index" separator="union all">
+                (SELECT #{obj.jobName}, #{obj.state}, #{obj.sendTime} FROM DUAL)
+            </foreach>
+          </if>
+    </insert>-->
+
+    <insert id="insertChannelByList" parameterType="java.util.List">
+        INSERT INTO CHANNEL_SYS_JOB_HISTORY (ID, JOB_NAME, STATE, SEND_TIME, NEXT_START_TIME)
+
+        select CHANNEL_SYS_JOB_HISTORY$SEQ.NEXTVAL,hi.*
+        from(
+        <foreach collection="list" item="obj" index="index" separator="union all">
+            SELECT #{obj.jobName}, #{obj.state}, #{obj.sendTime}, #{obj.nextStartTime} FROM DUAL
+        </foreach>
+        ) hi
+    </insert>
+
+    <update id="updateHistoryChannelByList" parameterType="java.util.List">
+        /*if标签无效?!*/
+        <!--<if test="list != null and list.size > 0">-->
+        <foreach collection="list" item="obj" index="index" open="begin" close=";end;" separator=";">
+            UPDATE CHANNEL_SYS_JOB_HISTORY
+            <set>
+                STATE = #{obj.state}
+            </set>
+            <where>
+                AND JOB_NAME = #{obj.jobName}
+                AND SEND_TIME = #{obj.sendTime}
+            </where>
+        </foreach>
+        <!--</if>-->
+    </update>
+
+    <select id="queryChannelByAutoComplate" resultType="com.asiainfo.workbench.activity.domain.Channel">
+        SELECT MAX(hi.ID) id, hi.JOB_NAME jobName
+        FROM CHANNEL_SYS_JOB_HISTORY hi
+        INNER JOIN CHANNEL_SYS_JOB_PATH pa ON (pa.JOB_NAME = hi.JOB_NAME)
+        <where>
+            <if test="name!=null and name!=''">
+                and hi.JOB_NAME like '%' || #{name} || '%'
+            </if>
+        </where>
+        GROUP BY hi.JOB_NAME
+    </select>
+
+    <select id="queryChannelForPageByCondition" resultType="com.asiainfo.workbench.activity.domain.Channel">
+        select * from (
+        select a.*, ROWNUM rnum from (
+        <!-- 多表查询时将值放在左表原引用字段中，起别名为原来字段名 -->
+        SELECT hi.ID id, hi.JOB_NAME jobName, DECODE(pa.WORK_TYPE,'D','日接口','M','月接口') workType,
+          DECODE(hi.STATE,'1','文件已到','2','文件未到 未超时','3','文件未到 已超时') state,
+          pa.GROUP_CODE groupCode, hi.NEXT_START_TIME nextStartTime, NVL(hi.LOG_INFO,' ') remark
+        FROM CHANNEL_SYS_JOB_HISTORY hi
+        INNER JOIN CHANNEL_SYS_JOB_PATH pa ON (pa.JOB_NAME = hi.JOB_NAME)
+        <where>
+            <if test="name!=null and name!=''">
+                and hi.JOB_NAME = #{name}
+            </if>
+            <if test="type!=null and type!=''">
+                and pa.WORK_TYPE = #{type}
+            </if>
+            <if test="state!=null and state!=''">
+                and hi.STATE = #{state}
+            </if>
+            <if test="startDate!=null and startDate!=''">
+                and to_date(hi.SEND_TIME, 'yyyy-mm-dd') &gt;= to_date(#{startDate}, 'yyyy-mm-dd')
+            </if>
+            <if test="endDate!=null and endDate!=''">
+                and to_date(hi.SEND_TIME, 'yyyy-mm-dd') &lt;= to_date(#{endDate}, 'yyyy-mm-dd')
+            </if>
+        </where>
+        order by to_date(hi.NEXT_START_TIME, 'yyyy-mm-dd hh24:mi:ss') desc
+        ) a
+        ) b
+        where b.rnum > #{beginNo} and #{beginNo} + #{pageSize} >= b.rnum
+    </select>
+
+    <select id="queryCountOfChannelByCondition" resultType="long">
+        select count(*) as count
+        FROM CHANNEL_SYS_JOB_HISTORY hi
+        INNER JOIN CHANNEL_SYS_JOB_PATH pa ON (pa.JOB_NAME = hi.JOB_NAME)
+        <where>
+            <if test="name!=null and name!=''">
+                and hi.JOB_NAME = #{name}
+            </if>
+            <if test="type!=null and type!=''">
+                and pa.WORK_TYPE = #{type}
+            </if>
+            <if test="state!=null and state!=''">
+                and hi.STATE = #{state}
+            </if>
+            <if test="startDate!=null and startDate!=''">
+                and to_date(hi.SEND_TIME, 'yyyy-mm-dd') &gt;= to_date(#{startDate}, 'yyyy-mm-dd')
+            </if>
+            <if test="endDate!=null and endDate!=''">
+                and to_date(hi.SEND_TIME, 'yyyy-mm-dd') &lt;= to_date(#{endDate}, 'yyyy-mm-dd')
+            </if>
+        </where>
+    </select>
+
+    <select id="queryActivityForId" resultType="int">
+        select NVL(MAX(ID),0)+1 as id
+        from CHANNEL_SYS_JOB_HISTORY
+    </select>
+
+	<!-- 动态sql -->
+	<sql id="queryMarketActivityForPageByConditionFormWhere">
+		from tbl_marketing_activities ma
+		left outer join tbl_dictionary_value dv1 on ma.type=dv1.id
+		left outer join tbl_dictionary_value dv2 on ma.state=dv2.id
+		inner join tbl_user u1 on ma.owner=u1.id
+		inner join tbl_user u2 on ma.createBy=u2.id
+		left outer join tbl_user u3 on ma.editBy=u3.id
+		<where>
+			<if test="name!=null and name!=''">
+				and ma.name like '%' #{name} '%'
+			</if>
+			<if test="owner!=null and owner!=''">
+				and u1.name like '%' #{owner} '%'
+			</if>
+			<if test="type!=null and type!=''">
+				and ma.type=#{type}
+			</if>
+			<if test="state!=null and state!=''">
+				and ma.state=#{state}
+			</if>
+			<if test="startDate!=null and startDate!=''">
+				and ma.startDate&gt;=#{startDate}
+			</if>
+			<if test="endDate!=null and endDate!=''">
+				and ma.endDate&lt;=#{endDate}
+			</if>
+		</where>
+	</sql>
+	
+	<insert id="saveCreateMarketActivity" parameterType="com.asiainfo.workbench.activity.domain.Channel">
+		insert into CHANNEL_SYS_JOB_HISTORY (ID, JOB_NAME, STATE, SEND_TIME, NEXT_START_TIME, LOG_INFO)
+		(SELECT #{id}, #{jobName}, #{state}, TO_CHAR(TO_DATE(#{nextStartTime}, 'yyyy-mm-dd hh24:mi:ss'),'YYYYMMDD'),
+		#{nextStartTime}, #{remark} FROM DUAL)
+	</insert>
+	
+
+    <select id="queryMarketActivityForPageByCondition" resultType="com.asiainfo.workbench.activity.domain.Channel">
+        <!-- 多表查询时将值放在左表原引用字段中，起别名为原来字段名 -->
+        SELECT B.ID id, A.JOB_NAME jobName, B.WORK_TYPE workType, B.GROUP_CODE groupCode, A.STATE state, A.SEND_TIME nextStartTime, A.LOG_INFO remark, ROWNUM
+        FROM CHANNEL_SYS_JOB_HISTORY A
+        INNER JOIN CHANNEL_SYS_JOB_PATH B ON (B.JOB_NAME = A.JOB_NAME)
+        <where>
+            <if test="name!=null and name!=''">
+                and A.JOB_NAME = #{name}
+            </if>
+            <if test="type!=null and type!=''">
+                and B.WORK_TYPE = #{type}
+            </if>
+            <if test="state!=null and state!=''">
+                and A.STATE = #{state}
+            </if>
+            <if test="startDate!=null and startDate!=''">
+                and A.SEND_TIME &gt;= #{startDate}
+            </if>
+            <if test="endDate!=null and endDate!=''">
+                and A.SEND_TIME &lt;= #{endDate}
+            </if>
+            and ROWNUM >= #{beginNo} and #{beginNo} + #{pageSize} > ROWNUM
+        </where>
+        order by A.SEND_TIME desc
+    </select>
+
+    <select id="queryCountOfMarketActivityByCondition" resultType="long">
+        select count(*) as count
+        FROM CHANNEL_SYS_JOB_HISTORY A
+        INNER JOIN CHANNEL_SYS_JOB_PATH B ON (B.JOB_NAME = A.JOB_NAME)
+        <where>
+            <if test="name!=null and name!=''">
+                and A.JOB_NAME = #{name}
+            </if>
+            <if test="type!=null and type!=''">
+                and B.WORK_TYPE = #{type}
+            </if>
+            <if test="state!=null and state!=''">
+                and A.STATE = #{state}
+            </if>
+            <if test="startDate!=null and startDate!=''">
+                and A.SEND_TIME &gt;= #{startDate}
+            </if>
+            <if test="endDate!=null and endDate!=''">
+                and A.SEND_TIME &lt;= #{endDate}
+            </if>
+            and ROWNUM >= #{beginNo} and #{beginNo} + #{pageSize} > ROWNUM
+        </where>
+    </select>
+	
+	<delete id="deleteMarketActivityByIds">
+		delete from CHANNEL_SYS_JOB_HISTORY where id in
+		<foreach collection="array" open="(" close=")" item="id" separator=",">
+			#{id}
+		</foreach>
+	</delete>
+
+
+    <!-- 多表查询时将值放在左表原引用字段中，起别名为原来字段名 -->
+    <select id="selectMarketActivityListByIds" resultType="com.asiainfo.workbench.activity.domain.Channel">
+        select A.JOB_NAME jobName, B.WORK_TYPE workType, B.GROUP_CODE groupCode, /*B.FILE_NAME fileName,*/ B.FILE_PATH filePath, A.STATE state, A.SEND_TIME nextStartTime, A.LOG_INFO remark,
+		DECODE(B.FORMAT_DATE,'',B.FILE_NAME_PREFIX||B.FILE_NAME_SUFFIX, B.FILE_NAME_PREFIX||TO_CHAR(TO_DATE(A.NEXT_START_TIME,'yyyy-mm-dd hh24:mi:ss'),B.FORMAT_DATE)||B.FILE_NAME_SUFFIX) fileName
+        from CHANNEL_SYS_JOB_HISTORY A
+        INNER JOIN CHANNEL_SYS_JOB_PATH B ON (B.JOB_NAME = A.JOB_NAME)
+        where A.id in
+        <foreach collection="array" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </select>
+	
+	<!-- 只查询id不需要多表查询 -->
+	<!-- 加入了@JsonProperty()，导致jsp页面只能通过属性上的JOB_NAME来取值，且不指定映射Map，则需要起别名jobName -->
+	<select id="queryMarketActivityById" resultType="com.asiainfo.workbench.activity.domain.Channel">
+		select hi.ID id, hi.JOB_NAME jobName, hi.STATE state, hi.LOG_INFO remark, pa.GROUP_CODE groupCode, pa.WORK_TYPE workType/*decode(pa.WORK_TYPE,'D','日接口','月接口') workType*/
+		from CHANNEL_SYS_JOB_HISTORY hi
+		INNER JOIN CHANNEL_SYS_JOB_PATH pa ON (pa.JOB_NAME = hi.JOB_NAME)
+		where hi.ID=#{id}
+	</select>
+	
+	<update id="SaveEditMarketActivityById" parameterType="com.asiainfo.workbench.activity.domain.Channel">
+		update CHANNEL_SYS_JOB_HISTORY
+		set STATE=#{state, jdbcType=VARCHAR}, LOG_INFO=#{remark, jdbcType=VARCHAR}
+		where ID=#{id, jdbcType=INTEGER}
+	</update>
+	
+	<!-- 查询相关联的名字需要多表查询 -->
+	<select id="queryMarketActivityDetailById" resultType="com.asiainfo.workbench.activity.domain.Channel">
+		select ma.id,ma.name,dv1.text as type,dv2.text as state,ma.startDate,ma.endDate,u1.name as owner,ma.actualCost,ma.budgetCost,
+			u2.name as createBy,ma.createTime,u3.name as editBy,ma.editTime,ma.description
+		from tbl_marketing_activities ma
+		left outer join tbl_dictionary_value dv1 on ma.type=dv1.id
+		left outer join tbl_dictionary_value dv2 on ma.state=dv2.id
+		inner join tbl_user u1 on ma.owner=u1.id
+		inner join tbl_user u2 on ma.createBy=u2.id
+		left outer join tbl_user u3 on ma.editBy=u3.id
+		where ma.id=#{id}
+	</select>
+	
+	<select id="queryMarketActivityByCondition" resultType="com.asiainfo.workbench.activity.domain.Channel">
+		select ma.id,ma.name,dv1.text as type,dv2.text as state,
+		ma.startDate,ma.endDate,u1.name as owner,ma.budgetCost,ma.actualCost,
+		u2.name as createBy,ma.createTime,u3.name as editBy,ma.editTime,ma.description
+		<include refid="queryMarketActivityForPageByConditionFormWhere"></include>
+		order by ma.createTime desc
+	</select>
+	
+	<insert id="saveCreateMarketActivityByList" parameterType="java.util.List">
+		iNSERT INTO CHANNEL_SYS_JOB_HISTORY (ID, JOB_NAME, STATE, NEXT_START_TIME, LOG_INFO)
+
+        select CHANNEL_SYS_JOB_HISTORY$SEQ.NEXTVAL,hi.*
+        from(
+            <foreach collection="list" item="obj" index="index" separator="union all">
+                SELECT #{obj.jobName},#{obj.state},#{obj.nextStartTime},#{obj.remark} FROM DUAL
+            </foreach>
+        ) hi
+	</insert>
+	
+	<!-- 根据clueId查询相关联的活动 -->
+	<select id="queryMarketActiviytByClueId" resultType="com.asiainfo.workbench.activity.domain.Channel">
+		select ma.name,dv1.text as type,dv2.text as state,ma.startDate,ma.endDate,u.name as owner,ma.id
+		from tbl_marketing_activities ma
+		left outer join tbl_dictionary_value dv1 on (ma.type = dv1.id)
+		left outer join tbl_dictionary_value dv2 on (ma.state = dv2.id)
+		inner join tbl_user u on (ma.owner = u.id)
+		inner join tbl_clue_activity_relation car on (ma.id = car.activityId)
+		where car.clueId = #{clueId}
+	</select>
+	
+	<!-- 根据name模糊查询与clueId关联的活动 -->
+	<select id="queryMarketActivityByNameClueId" resultType="com.asiainfo.workbench.activity.domain.Channel">
+		select ma.id,ma.name,dv1.text as type,dv2.text as state,ma.startDate,ma.endDate,u.name as owner,ma.id
+		from tbl_marketing_activities ma
+		left outer join tbl_dictionary_value dv1 on (ma.type = dv1.id)
+		left outer join tbl_dictionary_value dv2 on (ma.state = dv2.id)
+		inner join tbl_user u on (ma.owner = u.id)
+		where ma.name like '%' #{name} '%' and not exists(
+			select *
+			from tbl_clue_activity_relation car
+			where car.clueId = #{clueId} and car.activityId = ma.id
+		)
+	</select>
+	
+	<!-- 根据ids数组查询活动 -->
+	<select id="queryMarketActivityByIds" resultType="com.asiainfo.workbench.activity.domain.Channel">
+		select ma.name,dv1.text as type,dv2.text as state,ma.startDate,ma.endDate,u.name as owner,ma.id
+		from tbl_marketing_activities ma
+		left join tbl_dictionary_value dv1 on ma.type=dv1.id
+		left join tbl_dictionary_value dv2 on ma.state=dv2.id
+		join tbl_user u on ma.owner=u.id
+		where ma.id in
+		<foreach collection="array" open="(" close=")" item="id" separator=",">
+			#{id}
+		</foreach>
+	</select>
+
+</mapper>

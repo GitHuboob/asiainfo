@@ -1,0 +1,1102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="eda1ffa9-3556-46f5-81a5-08d8e4389e92" name="Default" comment="" />
+    <ignored path="$PROJECT_DIR$/dataservice/target/" />
+    <ignored path="$PROJECT_DIR$/comcc/target/" />
+    <ignored path="$PROJECT_DIR$/asdfa/target/" />
+    <ignored path="$PROJECT_DIR$/dataservice2/target/" />
+    <ignored path="$PROJECT_DIR$/center/target/" />
+    <ignored path="$PROJECT_DIR$/demo/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="ErrorTreeViewConfiguration">
+    <option name="hideWarnings" value="true" />
+    <option name="HIDE_WARNINGS" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Tag Library Descriptor" />
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>query-fullName</find>
+      <find>exportActivityBtn</find>
+      <find>workbench/contacts/exportExcel</find>
+      <find>saveCreateMarketActivityByList</find>
+      <find>CHANNEL_SYS_JOB_HISTORY</find>
+      <find>workbench/activity/exportExcel</find>
+      <find>workbench/activity/importExcel</find>
+      <find>importMarketActivityBtn</find>
+      <find>id=&quot;activityFile&quot;</find>
+      <find>activityFile</find>
+      <find>YYYY</find>
+      <find>updateHistoryChannelByList</find>
+      <find>autoSearch</find>
+      <find>importContactsModal</find>
+      <find>contactsListTbody</find>
+      <find>creatTime</find>
+      <find>mydate</find>
+      <find>ForPageByCondition</find>
+      <find>ForPage</find>
+      <find>queryContactsForPageByConditionBtn</find>
+      <find>search</find>
+      <find>AutoComplate</find>
+      <find>queryContactsForPageByCondition</find>
+      <find>query-name</find>
+      <find>paginationDiv</find>
+      <find>autocomplate</find>
+      <find>getChannelByParams</find>
+      <find>Base_Column_List</find>
+      <find>orderName</find>
+      <find>getHistoryChannelByParams</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>com.asiainfo.</replace>
+      <replace>com.asiainfo.workbench.contacts.domain.Staff</replace>
+      <replace>activityDao</replace>
+      <replace>dao</replace>
+      <replace>as</replace>
+      <replace>activityService</replace>
+      <replace>SendInfoRepositorySendInfoRepository</replace>
+      <replace>SendInfoRepository</replace>
+      <replace>sendInfo</replace>
+      <replace>8080</replace>
+      <replace>SendInfo</replace>
+      <replace>sendInfoRepository</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>F:\monitoringCenter\center\src\main\java\com\asiainfo\controller</dir>
+      <dir>F:\monitoringCenter\center\src\main\java\com\asiainfo\model</dir>
+    </dirStrings>
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/commons/controller/InterfaceStatusMonitorController.java" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/autorun/dao/AutoRunRecord.java" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/autorun/domain/AutoRunRecord.java" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/autorun/service/AutoRunRecordService.java" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/autorun/service/impl/AutoRunRecordServiceImpl.java" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/autorun/dao/AutoRunRecordDao.java" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/commons/util/DateUtil.java" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/autorun/dao/AutoRunRecordDao.xml" />
+        <option value="$PROJECT_DIR$/center/src/main/webapp/settings/qx/index.jsp" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/settings/qx/user/domain/User.java" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/settings/qx/user/service/UserService.java" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/settings/qx/user/dao/UserDao.java" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/settings/qx/user/service/impl/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/settings/qx/user/dao/UserDao.xml" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/settings/qx/user/web/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/center/pom.xml" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/commons/controller/FileStatusMonitorController.java" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/message/domain/message.java" />
+        <option value="$PROJECT_DIR$/center/src/main/webapp/workbench/index.jsp" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/message/web/controller/messageController.java" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/commons/filter/CommonFilter.java" />
+        <option value="$PROJECT_DIR$/center/src/main/resources/log4j2.xml" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/commons/service/impl/MailSendServiceImpl.java" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/commons/service/MailSendService.java" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/commons/util/EmailUtil.java" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/commons/constant/CommonConstants.java" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/activity/dao/ActivityDao.java" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/contacts/service/ContactsService.java" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/contacts/service/impl/ContactsServiceImpl.java" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/contacts/dao/ContactsDao.java" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/contacts/dao/ContactsDao.xml" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/contacts/web/controller/ContactsController.java" />
+        <option value="$PROJECT_DIR$/center/src/main/webapp/settings/index.html" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/message/dao/MessageDao.java" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/message/service/MessageService.java" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/message/service/impl/MessageServiceImpl.java" />
+        <option value="$PROJECT_DIR$/center/src/main/resources/application-dev.properties" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/commons/util/MessageUtil.java" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/commons/schedule/ScheduledService.java" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/Application.java" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/message/domain/Message.java" />
+        <option value="$PROJECT_DIR$/center/src/main/webapp/workbench/message/index.jsp" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/message/dao/MessageDao.xml" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/activity/web/controller/ActivityController.java" />
+        <option value="$PROJECT_DIR$/center/src/main/webapp/workbench/activity/index.jsp" />
+        <option value="$PROJECT_DIR$/center/src/main/webapp/workbench/activity/detail.jsp" />
+        <option value="$PROJECT_DIR$/center/src/main/webapp/workbench/contacts/index.jsp" />
+        <option value="$PROJECT_DIR$/center/src/main/webapp/workbench/contacts/detail.jsp" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/activity/service/impl/ActivityServiceImpl.java" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/activity/service/ActivityService.java" />
+        <option value="$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/activity/dao/ActivityDao.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\.m2\repo" />
+        <option name="mavenHome" value="D:/Program Files/apache-maven-3.3.9" />
+        <option name="userSettingsFile" value="D:\apache-maven-3.3.9\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="center-war" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="center-war" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-75" />
+    <option name="y" value="139" />
+    <option name="width" value="1918" />
+    <option name="height" value="1018" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="monitoringCenter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="center" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="monitoringCenter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="center" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="monitoringCenter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="center" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/sparkSQL-master" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.24390244" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth2" value="75" />
+    <property name="RequestMappingsPanelOrder2" value="2" />
+    <property name="SearchEverywhereHistoryKey" value="typeahead&#9;FILE&#9;file://F:/monitoringCenter/center/src/main/webapp/jquery/bs_typeahead&#10;glyphicon&#9;null&#9;null&#10;table-hover&#9;null&#9;null&#10;In&#9;FILE&#9;file://F:/monitoringCenter/center/src/main/java/com/asiainfo/model/DataInfo.java" />
+    <property name="typescript.add.unambiguous.imports.on.the.fly" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\monitoringCenter\center\src\main\resources" />
+      <recent name="F:\monitoringCenter\dataservice\src\main\java" />
+      <recent name="F:\monitoringCenter\dataservice\src\main" />
+      <recent name="F:\monitoringCenter\dataservice\src" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.asiainfo.settings.qx.user.web.controller" />
+      <recent name="com.asiainfo.workbench.autorun.service.impl" />
+      <recent name="com.asiainfo.workbench.autorun.service" />
+      <recent name="com.asiainfo.workbench.space.service.impl" />
+      <recent name="com.asiainfo.commons.controller" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\monitoringCenter\center\src\main\resources" />
+      <recent name="F:\monitoringCenter\center\src\main\webapp\image" />
+      <recent name="F:\monitoringCenter\center\src\main\java\com\asiainfo\workbench\message\dao" />
+      <recent name="F:\monitoringCenter\center\src\main\webapp\workbench\message" />
+      <recent name="F:\monitoringCenter\center\src\main\webapp\settings\qx" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.Application">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration name="MainRun" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.asiainfo.workbench.activity.web.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.asiainfo.workbench.activity.web.controller.MainRun" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="center" />
+      <envs />
+    </configuration>
+    <configuration name="SpringbootApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="SpringbootApplication" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="dataservice" />
+      <envs />
+    </configuration>
+    <configuration name="WebServiceClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.asiainfo.webservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.asiainfo.webservice.WebServiceClient" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="center" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="monitoringCenter" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.asiainfo.Application" />
+      <module name="center" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+    <list size="4">
+      <item index="0" class="java.lang.String" itemvalue="Spring Boot.Application" />
+      <item index="1" class="java.lang.String" itemvalue="Application.SpringbootApplication" />
+      <item index="2" class="java.lang.String" itemvalue="Application.WebServiceClient" />
+      <item index="3" class="java.lang.String" itemvalue="Application.MainRun" />
+    </list>
+    <recent_temporary>
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="Application.MainRun" />
+        <item index="1" class="java.lang.String" itemvalue="Application.WebServiceClient" />
+        <item index="2" class="java.lang.String" itemvalue="Application.SpringbootApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\Lenovo\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="eda1ffa9-3556-46f5-81a5-08d8e4389e92" name="Default" comment="" />
+      <created>1537150477518</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1537150477518</updated>
+      <workItem from="1537150479233" duration="7008000" />
+      <workItem from="1537164847647" duration="174000" />
+      <workItem from="1537165044712" duration="163000" />
+      <workItem from="1537165229572" duration="2489000" />
+      <workItem from="1537167747524" duration="324000" />
+      <workItem from="1537168093958" duration="71000" />
+      <workItem from="1537169658915" duration="1190000" />
+      <workItem from="1537170876356" duration="364000" />
+      <workItem from="1537171261968" duration="1106000" />
+      <workItem from="1537172485911" duration="106000" />
+      <workItem from="1537172613450" duration="245000" />
+      <workItem from="1537172879432" duration="746000" />
+      <workItem from="1537173645817" duration="364000" />
+      <workItem from="1537174032021" duration="457000" />
+      <workItem from="1537174510131" duration="918000" />
+      <workItem from="1537175454418" duration="2255000" />
+      <workItem from="1537233980825" duration="1075000" />
+      <workItem from="1537235093021" duration="18868000" />
+      <workItem from="1537266366772" duration="214000" />
+      <workItem from="1537347326411" duration="1996000" />
+      <workItem from="1537409497643" duration="1372000" />
+      <workItem from="1537494108673" duration="1596000" />
+      <workItem from="1537498782283" duration="11491000" />
+      <workItem from="1537837412804" duration="6807000" />
+      <workItem from="1537924461985" duration="13392000" />
+      <workItem from="1538010681057" duration="23441000" />
+      <workItem from="1538095179169" duration="20613000" />
+      <workItem from="1538123907820" duration="4876000" />
+      <workItem from="1538182724635" duration="16278000" />
+      <workItem from="1538267209286" duration="15593000" />
+      <workItem from="1538962937435" duration="25450000" />
+      <workItem from="1539046230675" duration="19203000" />
+      <workItem from="1539133443802" duration="20580000" />
+      <workItem from="1539167724190" duration="1767000" />
+      <workItem from="1539219947398" duration="3339000" />
+      <workItem from="1539225031520" duration="9386000" />
+      <workItem from="1539305958963" duration="15868000" />
+      <workItem from="1539568133076" duration="21760000" />
+      <workItem from="1539598309032" duration="1103000" />
+      <workItem from="1539653595643" duration="21630000" />
+      <workItem from="1539686137326" duration="322000" />
+      <workItem from="1539739447562" duration="21582000" />
+      <workItem from="1539825987855" duration="13108000" />
+      <workItem from="1539913028665" duration="21694000" />
+      <workItem from="1540171100432" duration="11062000" />
+      <workItem from="1540258015813" duration="1809000" />
+      <workItem from="1540262098237" duration="12576000" />
+      <workItem from="1540293699755" duration="1316000" />
+      <workItem from="1540371909192" duration="3757000" />
+      <workItem from="1540383336329" duration="14715000" />
+      <workItem from="1540467647940" duration="12628000" />
+      <workItem from="1540542367612" duration="2773000" />
+      <workItem from="1540775481023" duration="22805000" />
+      <workItem from="1540862027509" duration="9622000" />
+      <workItem from="1540961647428" duration="1497000" />
+      <workItem from="1540978552534" duration="1314000" />
+      <workItem from="1541035989047" duration="18550000" />
+      <workItem from="1541121064762" duration="8122000" />
+      <workItem from="1541380122014" duration="12837000" />
+      <workItem from="1541466633085" duration="622000" />
+      <workItem from="1541552890518" duration="11027000" />
+      <workItem from="1541639350943" duration="3753000" />
+      <workItem from="1541727216997" duration="3468000" />
+      <workItem from="1541733430670" duration="10837000" />
+      <workItem from="1541984463121" duration="20068000" />
+      <workItem from="1542071777853" duration="4174000" />
+      <workItem from="1542261606810" duration="3994000" />
+      <workItem from="1542704016933" duration="7019000" />
+      <workItem from="1542762058780" duration="12790000" />
+      <workItem from="1542794319064" duration="214000" />
+      <workItem from="1542849079295" duration="12880000" />
+      <workItem from="1542937629098" duration="6440000" />
+      <workItem from="1542946141908" duration="1781000" />
+      <workItem from="1542955089113" duration="54000" />
+      <workItem from="1543375182994" duration="1277000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="588165000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-11" y="-11" width="1942" height="1042" extended-state="7" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.53628117" sideWeight="0.38489583" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.265625" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34353742" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15192744" sideWeight="0.61510414" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31822917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24376418" sideWeight="0.49791667" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.54875284" sideWeight="0.596875" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/Application.java</url>
+          <line>8</line>
+          <properties />
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="17" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/settings/qx/user/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="25" column="33" lean-forward="false" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/settings/qx/user/dao/UserDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="865">
+          <caret line="34" column="15" lean-forward="true" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/settings/dictionary/dao/DictionaryValueDao.xml" />
+    <entry file="file://$PROJECT_DIR$/center/src/main/webapp/settings/dictionary/value/edit.html" />
+    <entry file="file://$PROJECT_DIR$/center/src/main/webapp/settings/qx/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4131">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/settings/qx/user/web/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-444">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/activity/domain/Channel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1578">
+          <caret line="116" column="18" lean-forward="false" selection-start-line="116" selection-start-column="18" selection-end-line="116" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/commons/controller/MessageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/search/domain/SendInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/commons/constant/GlobalVariables.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/space/dao/SpaceDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="67" column="13" lean-forward="true" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/contacts/domain/Staff.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="599">
+          <caret line="73" column="0" lean-forward="true" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/commons/controller/InterfaceStatusMonitorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="29" column="53" lean-forward="false" selection-start-line="29" selection-start-column="53" selection-end-line="29" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="891">
+          <caret line="102" column="21" lean-forward="true" selection-start-line="102" selection-start-column="21" selection-end-line="102" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/webapp/workbench/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-27">
+          <caret line="243" column="98" lean-forward="false" selection-start-line="243" selection-start-column="98" selection-end-line="243" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/webapp/image/dmp.jpg" />
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/commons/service/MailSendService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/commons/util/EmailUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2306">
+          <caret line="181" column="68" lean-forward="false" selection-start-line="181" selection-start-column="51" selection-end-line="181" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/contacts/dao/ContactsDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="35" column="47" lean-forward="false" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/contacts/service/impl/ContactsServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="51" column="55" lean-forward="true" selection-start-line="51" selection-start-column="55" selection-end-line="51" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/contacts/service/ContactsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="26" column="31" lean-forward="false" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/contacts/dao/ContactsDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="113" column="30" lean-forward="true" selection-start-line="113" selection-start-column="30" selection-end-line="113" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/webapp/settings/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="134" column="18" lean-forward="true" selection-start-line="134" selection-start-column="18" selection-end-line="134" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/message/service/impl/MessageServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/message/dao/MessageDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="16" column="4" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/message/service/MessageService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="8" column="31" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/commons/constant/CommonConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="32" column="65" lean-forward="false" selection-start-line="32" selection-start-column="54" selection-end-line="32" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/commons/filter/CommonFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="43" column="18" lean-forward="false" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/commons/service/impl/MailSendServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="103" column="5" lean-forward="false" selection-start-line="103" selection-start-column="5" selection-end-line="103" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/commons/exception/GlobalExceptionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-758">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/commons/util/IdGenUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/resources/application-dev.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="30" column="33" lean-forward="false" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/resources/log4j2.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="67" column="63" lean-forward="false" selection-start-line="67" selection-start-column="63" selection-end-line="67" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/commons/util/MessageUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1891">
+          <caret line="183" column="40" lean-forward="true" selection-start-line="183" selection-start-column="40" selection-end-line="183" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/commons/schedule/ScheduledService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="111" column="0" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="15" column="4" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="18" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/message/dao/MessageDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="24" column="23" lean-forward="true" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/commons/controller/FileStatusMonitorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="17" column="7" lean-forward="false" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/message/domain/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/activity/web/controller/ActivityController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7360">
+          <caret line="65" column="4" lean-forward="false" selection-start-line="65" selection-start-column="4" selection-end-line="65" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/message/web/controller/messageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/contacts/web/controller/ContactsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1242">
+          <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/webapp/workbench/activity/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6496">
+          <caret line="496" column="67" lean-forward="false" selection-start-line="496" selection-start-column="67" selection-end-line="496" selection-end-column="67" />
+          <folding>
+            <marker date="1543375677936" expanded="true" signature="12349:12388" ph="..." />
+            <marker date="1543375677936" expanded="true" signature="12691:12703" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/webapp/workbench/activity/detail.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="461" column="15" lean-forward="false" selection-start-line="461" selection-start-column="15" selection-end-line="461" selection-end-column="15" />
+          <folding>
+            <marker date="1543375678047" expanded="true" signature="2264:2277" ph="..." />
+            <marker date="1543375678047" expanded="true" signature="2421:2464" ph="..." />
+            <marker date="1543375678047" expanded="true" signature="2733:2820" ph="..." />
+            <marker date="1543375678047" expanded="true" signature="2977:3009" ph="..." />
+            <marker date="1543375678047" expanded="true" signature="3224:3256" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/webapp/workbench/contacts/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3823">
+          <caret line="443" column="28" lean-forward="false" selection-start-line="443" selection-start-column="28" selection-end-line="443" selection-end-column="28" />
+          <folding>
+            <marker date="1543375677982" expanded="true" signature="10998:11037" ph="..." />
+            <marker date="1543375677982" expanded="true" signature="11336:11348" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/webapp/workbench/message/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3132">
+          <caret line="116" column="51" lean-forward="false" selection-start-line="116" selection-start-column="42" selection-end-line="116" selection-end-column="51" />
+          <folding>
+            <marker date="1542946375006" expanded="true" signature="3575:3614" ph="..." />
+            <marker date="1542946375006" expanded="true" signature="3930:3942" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/webapp/workbench/contacts/detail.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="357" column="0" lean-forward="false" selection-start-line="357" selection-start-column="0" selection-end-line="357" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/activity/service/ActivityService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/activity/dao/ActivityDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-330">
+          <caret line="27" column="43" lean-forward="false" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/activity/dao/ActivityDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-406">
+          <caret line="194" column="59" lean-forward="false" selection-start-line="194" selection-start-column="13" selection-end-line="194" selection-end-column="59" />
+          <folding>
+            <marker date="1543375829315" expanded="true" signature="1257:1281" ph="/*, A.FILE_N... " />
+            <marker date="1543375829315" expanded="true" signature="1395:1555" ph="SELECT FROM CHANNEL_SYS_JOB_PATH" />
+            <marker date="1543375829315" expanded="true" signature="1674:1951" ph="SELECT FROM CHANNEL_SYS_JOB_PATH" />
+            <marker date="1543375829315" expanded="true" signature="2038:3094" ph="SELECT 2 STA... CHANNEL_SYS_JOB_PATH" />
+            <marker date="1543375829315" expanded="true" signature="2090:2127" ph="/*B.NEXT_STA... " />
+            <marker date="1543375829315" expanded="true" signature="2321:2503" ph="/*DECODE(B.F... " />
+            <marker date="1543375829315" expanded="true" signature="2512:2671" ph="/*DECODE(A.F... " />
+            <marker date="1543375829315" expanded="true" signature="3177:3577" ph="SELECT COUNT... " />
+            <marker date="1543375829315" expanded="true" signature="3671:4517" ph="SELECT A.ID,... CHANNEL_SYS_JOB_HISTORY" />
+            <marker date="1543375829315" expanded="true" signature="3771:3794" ph="/*A.NEXT_STA... " />
+            <marker date="1543375829315" expanded="true" signature="3984:4143" ph="/*DECODE(B.F... " />
+            <marker date="1543375829315" expanded="true" signature="5063:5431" ph="INSERT INTO CHANNEL_SYS_JOB_HISTORY... " />
+            <marker date="1543375829315" expanded="true" signature="5158:5431" ph="select CHANN... DUAL" />
+            <marker date="1543375829315" expanded="true" signature="5315:5399" ph="SELECT ##{obj... DUAL" />
+            <marker date="1543375829315" expanded="true" signature="6124:6466" ph="SELECT MAX(h... CHANNEL_SYS_JOB_HISTORY" />
+            <marker date="1543375829315" expanded="true" signature="6599:7953" ph="select * fro... *" />
+            <marker date="1543375829315" expanded="true" signature="6623:7868" ph="select a.*, ID" />
+            <marker date="1543375829315" expanded="true" signature="6707:7856" ph="SELECT hi.ID... CHANNEL_SYS_JOB_HISTORY" />
+            <marker date="1543375829315" expanded="true" signature="8960:9026" ph="select NVL(M... CHANNEL_SYS_JOB_HISTORY" />
+            <marker date="1543375829315" expanded="true" signature="10054:10301" ph="insert into CHANNEL_SYS_JOB_HISTORY... " />
+            <marker date="1543375829315" expanded="true" signature="10153:10300" ph="SELECT ##{id}... DUAL" />
+            <marker date="1543375829315" expanded="true" signature="10485:11456" ph="SELECT B.ID CHANNEL_SYS_JOB_HISTORY" />
+            <marker date="1543375829315" expanded="true" signature="12813:12838" ph="/*B.FILE_NAM... " />
+            <marker date="1543375829315" expanded="true" signature="13581:13872" ph="select hi.ID... CHANNEL_SYS_JOB_HISTORY" />
+            <marker date="1543375829315" expanded="true" signature="13701:13750" ph="/*decode(pa.... " />
+            <marker date="1543375829315" expanded="true" signature="13993:14135" ph="update CHANNEL_SYS_JOB_HISTORY... " />
+            <marker date="1543375829315" expanded="true" signature="14281:14804" ph="select ma.id... tbl_marketing_activities" />
+            <marker date="1543375829315" expanded="true" signature="14926:15242" ph="select ma.id... " />
+            <marker date="1543375829315" expanded="true" signature="15335:15709" ph="iNSERT INTO CHANNEL_SYS_JOB_HISTORY... " />
+            <marker date="1543375829315" expanded="true" signature="15429:15709" ph="select CHANN... DUAL" />
+            <marker date="1543375829315" expanded="true" signature="15594:15673" ph="SELECT ##{obj... DUAL" />
+            <marker date="1543375829315" expanded="true" signature="15855:16264" ph="select ma.na... tbl_marketing_activities" />
+            <marker date="1543375829315" expanded="true" signature="16420:16899" ph="select ma.id... tbl_marketing_activities" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/src/main/java/com/asiainfo/workbench/activity/service/impl/ActivityServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1442">
+          <caret line="294" column="13" lean-forward="true" selection-start-line="294" selection-start-column="13" selection-end-line="294" selection-end-column="13" />
+          <folding>
+            <element signature="e#9565#9566#0" expanded="true" />
+            <element signature="e#9618#9619#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>center:war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.24390244" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.24390244" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.24390244" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.24390244" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>center</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.24390244" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: com.fasterxml.jackson.core:jackson-annotations:2.8.4</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.24390244" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

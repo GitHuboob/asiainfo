@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.asiainfo.workbench.message.dao.MessageDao">
+
+    <resultMap id="BaseResultMap" type="com.asiainfo.workbench.message.domain.Message">
+        <result column="MESSAGE_ID" jdbcType="VARCHAR" property="messageId" />
+        <result column="TABLE_NAME" jdbcType="VARCHAR" property="tableName" />
+        <result column="CREATE_TIME" jdbcType="VARCHAR" property="createTime" />
+        <result column="REPEAT_COUNT" jdbcType="VARCHAR" property="repeatCount" />
+        <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+        <result column="ORDER_NAME" jdbcType="VARCHAR" property="orderName" />
+    </resultMap>
+
+	<!-- 根据条件分页查询联系人(查名字) -->
+    <!-- 总结：resultType需要将字段和属性对应起来；BaseResultMap可以直接使用，但需要指定对应的类 -->
+	<select id="queryMessagesForPageByCondition" resultType="com.asiainfo.workbench.message.domain.Message">
+        select * from (
+            select a.*, ROWNUM rnum from (
+                select mi.MESSAGE_ID messageId, mi.TABLE_NAME tableName, mi.CREATE_TIME createTime,
+                       mi.REPEAT_COUNT repeatCount, NVL(mi.REMARK,' ') remark, NVL(mi.ORDER_NAME,' ') orderName
+                from CHANNEL_SYS_MESSAGE_INFO mi
+                <where>
+                    <if test="tableName!=null and tableName!=''">
+                        and mi.TABLE_NAME = #{tableName}
+                    </if>
+                    <if test="createTime!=null and createTime!=''">
+                        and to_char(to_date(mi.CREATE_TIME, 'yyyy-mm-dd hh24:mi:ss'),'yyyy-mm-dd') = #{createTime}
+                    </if>
+                </where>
+                order by to_date(mi.CREATE_TIME, 'yyyy-mm-dd hh24:mi:ss') desc
+            ) a
+        ) b
+		where b.rnum > #{beginNo} and #{beginNo} + #{pageSize} >= b.rnum
+	</select>
+
+	<!-- 根据条件查询联系人总条数 -->
+	<select id="queryMessagesForCountByCondition" resultType="long">
+		select count(*) as count
+		from CHANNEL_SYS_MESSAGE_INFO mi
+        <where>
+            <if test="tableName!=null and tableName!=''">
+                and mi.TABLE_NAME = #{tableName}
+            </if>
+            <if test="createTime!=null and createTime!=''">
+                and to_char(to_date(mi.CREATE_TIME, 'yyyy-mm-dd hh24:mi:ss'),'yyyy-mm-dd') = #{createTime}
+            </if>
+        </where>
+	</select>
+
+    <select id="queryMessagesByDate" resultMap="BaseResultMap">
+        SELECT MI.MESSAGE_ID, MI.TABLE_NAME, MI.CREATE_TIME, MI.REPEAT_COUNT, MI.REMARK, MI.ORDER_NAME
+        FROM CHANNEL_SYS_MESSAGE_INFO MI
+        <!-- WHERE TO_CHAR(TO_DATE(MI.CREATE_TIME, 'YYYY-MM-DD HH24:MI:SS'), 'YYYYMMDD') = #{date,jdbcType=VARCHAR} -->
+        WHERE MI.CREATE_TIME = #{date,jdbcType=VARCHAR}
+        ORDER BY MI.CREATE_TIME DESC
+    </select>
+</mapper>

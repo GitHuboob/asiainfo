@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.asiainfo.workbench.space.dao.SpaceDao">
+
+    <resultMap id="BaseResultMap" type="com.asiainfo.workbench.space.domain.Space">
+        <result column="ID" jdbcType="NUMERIC" property="id" />
+        <result column="SPACE_NAME" jdbcType="VARCHAR" property="spaceName" />
+        <result column="MEGS_ALLOC" jdbcType="VARCHAR" property="megsAlloc" />
+        <result column="MEGS_FREE" jdbcType="VARCHAR" property="megsFree" />
+        <result column="MEGS_USED" jdbcType="VARCHAR" property="megsUsed" />
+        <result column="PCT_FREE" jdbcType="VARCHAR" property="pctFree" />
+        <result column="PCT_USED" jdbcType="VARCHAR" property="pctUsed" />
+        <result column="EXTEND_MAX" jdbcType="VARCHAR" property="extendMax" />
+        <result column="CREATE_TIME" jdbcType="VARCHAR" property="createTime" />
+    </resultMap>
+
+	<sql id="Base_Column_List">
+		ID, SPACE_NAME, MEGS_ALLOC, MEGS_FREE, MEGS_USED, PCT_FREE, PCT_USED, EXTEND_MAX, CREATE_TIME
+	</sql>
+
+	<select id="querySpaceInfoByPeriod" resultMap="BaseResultMap">
+        SELECT a.tablespace_name SPACE_NAME,
+                ROUND(a.bytes_alloc / 1048576 / 1024, 2) MEGS_ALLOC,
+                ROUND(NVL(b.bytes_free, 0) / 1048576 / 1024, 2) MEGS_FREE,
+                ROUND((a.bytes_alloc - NVL(b.bytes_free, 0)) / 1048576 / 1024, 2) MEGS_USED,
+                ROUND((NVL(b.bytes_free, 0) / a.bytes_alloc) * 100, 2) PCT_FREE,
+                100 - ROUND((NVL(b.bytes_free, 0) / a.bytes_alloc) * 100, 2) PCT_USED,
+                ROUND(maxbytes / 1048576 / 1024, 2) EXTEND_MAX,
+                SYSDATE CREATE_TIME
+           FROM (SELECT f.tablespace_name,
+                        SUM(f.bytes) bytes_alloc,
+                        SUM(DECODE(f.autoextensible,
+                                   'YES',
+                                   f.maxbytes,
+                                   'NO',
+                                   f.bytes)) maxbytes
+                   FROM dba_data_files f
+                  GROUP BY tablespace_name) a,
+                (SELECT f.tablespace_name, SUM(f.bytes) bytes_free
+                   FROM dba_free_space f
+                  GROUP BY tablespace_name) b
+          WHERE a.tablespace_name = b.tablespace_name(+)
+         UNION ALL
+         SELECT h.tablespace_name,
+                ROUND(SUM(h.bytes_free + h.bytes_used) / 1048576 / 1024) megs_alloc,
+                ROUND(SUM((h.bytes_free + h.bytes_used) - NVL(p.bytes_used, 0)) /
+                      1048576 / 1024) megs_free,
+                ROUND(SUM(NVL(p.bytes_used, 0)) / 1048576 / 1024) megs_used,
+                ROUND((SUM((h.bytes_free + h.bytes_used) - NVL(p.bytes_used, 0)) /
+                      SUM(h.bytes_used + h.bytes_free)) * 100) Pct_Free,
+                100 -
+                ROUND((SUM((h.bytes_free + h.bytes_used) - NVL(p.bytes_used, 0)) /
+                      SUM(h.bytes_used + h.bytes_free)) * 100) pct_used,
+                ROUND(SUM(f.maxbytes) / 1048576 / 1024) MAX,
+                SYSDATE
+           FROM sys.v_$TEMP_SPACE_HEADER h,
+                sys.v_$Temp_extent_pool  p,
+                dba_temp_files           f
+          WHERE p.file_id(+) = h.file_id
+            AND p.tablespace_name(+) = h.tablespace_name
+            AND f.file_id = h.file_id
+            AND f.tablespace_name = h.tablespace_name
+          GROUP BY h.tablespace_name
+          ORDER BY 1
+	</select>
+
+    <insert id="insertSpaceByList" parameterType="java.util.List">
+        INSERT INTO CHANNEL_SYS_SPACE_TABLE (ID, SPACE_NAME, MEGS_ALLOC, MEGS_FREE, MEGS_USED, PCT_FREE, PCT_USED, EXTEND_MAX, CREATE_TIME)
+
+        select CHANNEL_SYS_SPACE_TABLE$SEQ.NEXTVAL,hi.*
+        from(
+        <foreach collection="list" item="obj" index="index" separator="union all">
+            SELECT #{obj.spaceName}, #{obj.megsAlloc}, #{obj.megsFree}, #{obj.megsUsed}, #{obj.pctFree}, #{obj.pctUsed}, #{obj.extendMax}, #{obj.createTime} FROM DUAL
+        </foreach>
+        ) hi
+    </insert>
+
+</mapper>

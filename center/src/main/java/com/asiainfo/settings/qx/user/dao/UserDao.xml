@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.asiainfo.settings.qx.user.dao.UserDao">
+
+    <resultMap id="BaseResultMap" type="com.asiainfo.settings.qx.user.domain.User">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="NAME" jdbcType="VARCHAR" property="name" />
+        <result column="LOGIN_ACT" jdbcType="VARCHAR" property="loginAct" />
+        <result column="LOGIN_PWD" jdbcType="VARCHAR" property="loginPwd" />
+        <result column="LOCK_STATUS" jdbcType="VARCHAR" property="lockStatus" />
+        <result column="ALLOW_IPS" jdbcType="VARCHAR" property="allowIps" />
+        <result column="CREATE_TIME" jdbcType="VARCHAR" property="createTime" />
+        <result column="EDIT_TIME" jdbcType="VARCHAR" property="editTime" />
+    </resultMap>
+
+	<!--<select id="queryUserByLoginActPwd" parameterType="hashmap" resultType="com.asiainfo.settings.qx.user.domain.User">-->
+    <select id="queryUserByLoginActPwd" parameterType="hashmap" resultMap="BaseResultMap">
+		select * 
+		from CHANNEL_SYS_USER_TABLE
+		where LOGIN_ACT = #{loginAct} and LOGIN_PWD = #{loginPwd}
+	</select>
+
+	<!--<select id="queryAllUsers" resultType="com.asiainfo.settings.qx.user.domain.User">-->
+    <select id="queryAllUsers" resultMap="BaseResultMap">
+		select *
+		from CHANNEL_SYS_USER_TABLE
+		where lockStatus = 1;
+	</select>
+
+    <update id="updateUserByActPwd" parameterType="hashmap">
+        update CHANNEL_SYS_USER_TABLE
+        set LOGIN_PWD = #{loginPwd}
+        where LOGIN_ACT = #{loginAct}
+    </update>
+
+</mapper>

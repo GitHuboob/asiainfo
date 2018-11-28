@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="asdfa" />
+        <module name="center" />
+        <module name="comcc" />
+        <module name="dataservice" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="asdfa" target="1.5" />
+      <module name="center" target="1.8" />
+      <module name="comcc" target="1.5" />
+      <module name="dataservice" target="1.6" />
+      <module name="dataservice2" target="1.5" />
+      <module name="demo" target="1.6" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
